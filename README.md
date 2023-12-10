@@ -1,4 +1,4 @@
-# AOCC
+# AoCC
 
 Advent of Code Challenges
 
@@ -11,7 +11,7 @@ Advent of Code Challenges
 `GPL-3.0-or-later`
 
 ```txt
-AOCC
+AoCC
 Copyright (C) 2023 Yasha
 
 This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
