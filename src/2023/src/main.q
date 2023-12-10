@@ -1,7 +1,19 @@
 // range (0-9)
 r: 48+til 10;
 
+D: ("one"; "two"; "three"; "four"; "five"; "six"; "seven"; "eight"; "nine");
+
 fn: {
+  // FIXME: part 2
+  // 0N 0 0N 0N 0N 0N 0N 0N 4
+  // 0N 4 7 0N 0N 0N 0N 0 0N
+  // 3 0N 7 0N 0N 0N 0N 0N 0N
+  // 3 1 0N 7 0N 0N 0N 0N 0N
+  // 0N 0N 0N 0N 0N 0N 11 0N 1
+  // 1 0N 0N 0N 0N 0N 0N 3 0N
+  // 0N 0N 0N 0N 0N 6 0N 0N 0N
+  // p: {[x;y] first ss[x;y] }[x] each D;
+
   d: ({[c] n: "i"$c; r ? n} x) except 10;
   (first d * 10) + last d
 
