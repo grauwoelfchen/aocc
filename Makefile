@@ -61,5 +61,5 @@ help: # Display this message
 		sort
 .PHONY: help
 
-.DEFAULT_GOAL = vet\:all
-default: vet\:all
+.DEFAULT_GOAL = vet
+default: vet
