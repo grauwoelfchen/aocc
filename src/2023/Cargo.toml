@@ -1,0 +1,15 @@
+[package]
+version = "0.0.1"
+name = "aocc-2023"
+license = "GPL-3.0-or-later"
+readme = "README.md"
+edition = "2021"
+
+[[bin]]
+name = "aocc-2023"
+path = "src/main.rs"
+
+[dev-dependencies.cargo-husky]
+version = "1"
+default-features = false
+features = ["user-hooks"]
