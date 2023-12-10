@@ -2,9 +2,22 @@
 
 Advent of Code Challenges
 
+
+## How to check
+
+### Rust
+
 ```zsh
 % cargo run -p aocc-2023 --release
 ```
+
+### Q
+
+```zsh
+% cd /path/to/year
+% q ./src/main.q
+```
+
 
 ## License
 
