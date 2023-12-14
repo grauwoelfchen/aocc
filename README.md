@@ -5,17 +5,19 @@ Advent of Code Challenges
 
 ## How to check
 
+Choose the year and give a day number like `day1` as followings.
+
 ### Rust
 
 ```zsh
-% cargo run -p aocc-2023 --release
+% cargo run -p aocc-2023 day1 --release
 ```
 
 ### Q
 
 ```zsh
-% cd /path/to/year
-% q ./src/main.q
+% cd src/2023
+% q ./src/q/day1.q
 ```
 
 

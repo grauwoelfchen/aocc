@@ -5,11 +5,11 @@ https://adventofcode.com/2023/day/1
 ## Rust
 
 ```zsh
-% cargo run -p aocc-2023 --release
+% cargo run -p aocc-2023 day1 --release
 ```
 
 ## Q
 
 ```zsh
-% q src/main.q
+% q src/q/day1.q
 ```
