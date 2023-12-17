@@ -15,18 +15,16 @@ static DIGITS: [&str; 10] = [
 impl AoCC {
     pub fn day1(input: &str) -> u32 {
         input.lines().fold(0, |acc, line| {
-            let mut chars = line.chars();
+            let mut i_c = line.char_indices();
 
             // NOTE:
             // * This doesn't work for "twenty" (20) or "thirteen" (13) etc.
-            let mut tmp = String::new();
-            let left = chars.find_map(|c| {
+            let left = i_c.find_map(|(i, c)| {
                 c.to_digit(10).or_else(|| {
-                    tmp.push(c);
-                    match DIGITS.iter().position(|d| tmp.contains(*d)) {
-                        Some(i) => Some(i as u32),
-                        _ => None,
-                    }
+                    DIGITS
+                        .iter()
+                        .position(|d| line[0..=i].contains(d))
+                        .map(|i| i as u32)
                 })
             });
 
@@ -34,14 +32,12 @@ impl AoCC {
             // * eg. "seventeen" (17) can be treated as 7
             // * eg. "foury" means 0
             // * eg. "fourtyone" (41) can be treated as 1
-            tmp = String::new();
-            let right = chars.rev().find_map(|c| {
+            let right = i_c.rev().find_map(|(i, c)| {
                 c.to_digit(10).or_else(|| {
-                    tmp.insert_str(0, &c.to_string());
-                    match DIGITS.iter().position(|d| tmp.contains(*d)) {
-                        Some(i) => Some(i as u32),
-                        _ => None,
-                    }
+                    DIGITS
+                        .iter()
+                        .position(|d| line[i..].contains(d))
+                        .map(|i| i as u32)
                 })
             });
 
