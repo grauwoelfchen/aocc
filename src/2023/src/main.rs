@@ -57,7 +57,27 @@ impl AoCC {
         })
     }
 
-    pub fn day1(input: &str) -> u32 {
+    fn add_calibration_values(left: Option<u32>, right: Option<u32>) -> u32 {
+        match (left, right) {
+            (Some(a), Some(b)) => a * 10 + b,
+            (Some(a), None) => a * 10 + a,
+            _ => unreachable!(),
+        }
+    }
+
+    pub fn day1_part_one(input: &str) -> u32 {
+        input.lines().fold(0, |acc, line| {
+            let mut chars = line.chars();
+
+            let left = chars.find_map(|c| c.to_digit(10));
+
+            let right = chars.rev().find_map(|c| c.to_digit(10));
+
+            acc + Self::add_calibration_values(left, right)
+        })
+    }
+
+    pub fn day1_part_two(input: &str) -> u32 {
         input.lines().fold(0, |acc, line| {
             let mut i_c = line.char_indices();
 
@@ -85,11 +105,7 @@ impl AoCC {
                 })
             });
 
-            acc + match (left, right) {
-                (Some(a), Some(b)) => a * 10 + b,
-                (Some(a), None) => a * 10 + a,
-                _ => unreachable!(),
-            }
+            acc + Self::add_calibration_values(left, right)
         })
     }
 }
@@ -123,7 +139,7 @@ fn main() -> ExitCode {
     f.read_to_string(&mut buf).expect("cannot read the file");
 
     let result = match n {
-        1 => AoCC::day1(&buf),
+        1 => AoCC::day1_part_two(&buf),
         2 => AoCC::day2_part_two(&buf),
         _ => unimplemented!(),
     };
@@ -137,8 +153,8 @@ mod test {
     use super::*;
 
     #[test]
-    fn test_day1() {
-        let result = AoCC::day1(
+    fn test_day1_part_one() {
+        let result = AoCC::day1_part_one(
             r#"1abc2
 pqr3stu8vwx
 a1b2c3d4e5f
@@ -146,8 +162,11 @@ treb7uchet
 "#,
         );
         assert_eq!(142, result);
+    }
 
-        let result = AoCC::day1(
+    #[test]
+    fn test_day1_part_two() {
+        let result = AoCC::day1_part_two(
             r#"two1nine
 eightwothree
 abcone2threexyz
