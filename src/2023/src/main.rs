@@ -24,7 +24,7 @@ impl AoCC {
                     DIGITS
                         .iter()
                         .position(|d| line[0..=i].contains(d))
-                        .map(|i| i as u32)
+                        .map(|p| p as u32)
                 })
             });
 
@@ -37,7 +37,7 @@ impl AoCC {
                     DIGITS
                         .iter()
                         .position(|d| line[i..].contains(d))
-                        .map(|i| i as u32)
+                        .map(|p| p as u32)
                 })
             });
 
