@@ -10,6 +10,7 @@ Choose the year and give a day number like `day1` as followings.
 ### Rust
 
 ```zsh
+% cd src/2023
 % cargo run -p aocc-2023 day1 --release
 ```
 

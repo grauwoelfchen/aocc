@@ -1,15 +1,32 @@
-# Day 1: Trebuchet?!
+# 2023
 
-https://adventofcode.com/2023/day/1
+https://adventofcode.com/2023/
 
-## Rust
+
+## Preparation
+
+Download and put `input` files as below:
 
 ```zsh
+% ls ./data
+.gitignore
+input-day1.txt
+input-day2.txt
+...
+```
+
+## Check
+
+### Rust
+
+```zsh
+% cd /path/to/2023
 % cargo run -p aocc-2023 day1 --release
 ```
 
-## Q
+### Q
 
 ```zsh
+% cd /path/to/2023
 % q src/q/day1.q
 ```
