@@ -7,9 +7,6 @@ use std::process::ExitCode;
 mod day1;
 mod day2;
 
-use day1::Day1;
-use day2::Day2;
-
 static DATA_DIR: &str = "data";
 
 fn main() -> ExitCode {
@@ -38,8 +35,8 @@ fn main() -> ExitCode {
     f.read_to_string(&mut buf).expect("cannot read the file");
 
     let result = match n {
-        1 => Day1::part_two(&buf),
-        2 => Day2::part_two(&buf),
+        1 => day1::solution::part_two(&buf),
+        2 => day2::solution::part_two(&buf),
         _ => unimplemented!(),
     };
     println!("day{}: {}", n, result);

@@ -1,13 +1,11 @@
-// NOTE: index matches its digit value
-static DIGITS: [&str; 10] = [
-    "zero", "one", "two", "three", "four", "five", "six", "seven", "eight",
-    "nine",
-];
-
-pub struct Day1;
-
 #[allow(dead_code)]
-impl Day1 {
+pub mod solution {
+    // NOTE: index matches its digit value
+    static DIGITS: [&str; 10] = [
+        "zero", "one", "two", "three", "four", "five", "six", "seven", "eight",
+        "nine",
+    ];
+
     fn add_calibration_values(left: Option<u32>, right: Option<u32>) -> u32 {
         match (left, right) {
             (Some(a), Some(b)) => a * 10 + b,
@@ -24,7 +22,7 @@ impl Day1 {
 
             let right = chars.rev().find_map(|c| c.to_digit(10));
 
-            acc + Self::add_calibration_values(left, right)
+            acc + add_calibration_values(left, right)
         })
     }
 
@@ -56,7 +54,7 @@ impl Day1 {
                 })
             });
 
-            acc + Self::add_calibration_values(left, right)
+            acc + add_calibration_values(left, right)
         })
     }
 }
@@ -67,7 +65,7 @@ mod test {
 
     #[test]
     fn test_part_one() {
-        let result = Day1::part_one(
+        let result = solution::part_one(
             r#"1abc2
 pqr3stu8vwx
 a1b2c3d4e5f
@@ -79,7 +77,7 @@ treb7uchet
 
     #[test]
     fn test_part_two() {
-        let result = Day1::part_two(
+        let result = solution::part_two(
             r#"two1nine
 eightwothree
 abcone2threexyz
